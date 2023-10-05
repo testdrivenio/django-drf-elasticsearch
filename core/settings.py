@@ -139,8 +139,12 @@ REST_FRAMEWORK = {
 # Elasticsearch
 # https://django-elasticsearch-dsl.readthedocs.io/en/latest/settings.html
 
+# Change this to False, If you wish to run the project without docker
+RUN_WITH_DOCKER = True
+ELASTIC_SEARCH_HOST = 'elasticsearch' if RUN_WITH_DOCKER else 'localhost'
+ELASTIC_SEARCH_PORT = '9200'
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': f'{ELASTIC_SEARCH_HOST}:{ELASTIC_SEARCH_PORT}'
     },
 }
