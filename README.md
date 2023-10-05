@@ -8,9 +8,11 @@ Check out the [post](https://testdriven.io/blog/django-drf-elasticsearch/).
 
 There are 2 ways you can run the project
 
-[Run with python and installing Elasticsearch](#run-with-python-and-installing-elasticsearch)
-[Run with Docker](#run-project-with-docker)
-[Testing Elasticsearch](#testings-elasticsearch)
+- [Run with python and installing Elasticsearch](#run-with-python-and-installing-elasticsearch)
+
+- [Run with Docker](#run-project-with-docker)
+
+- [Testing Elasticsearch](#testings-elasticsearch)
 
 ### Run with python and installing Elasticsearch
 
