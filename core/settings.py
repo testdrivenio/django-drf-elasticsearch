@@ -141,6 +141,8 @@ REST_FRAMEWORK = {
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
-    },
+        'hosts': 'https://localhost:9200',
+        'http_auth': ('elastic', 'YOUR_PASSWORD'),
+        'ca_certs':'PATH_TO_http_ca.crt'
+    }
 }
