@@ -24,7 +24,7 @@ class PaginatedElasticSearchAPIView(APIView, LimitOffsetPagination):
             search = self.document_class.search().query(q)
             response = search.execute()
 
-            print(f'Found {response.hits.total.value} hit(s) for query: "{query}"')
+            print(f"Found {response.hits.total.value} hit(s) for query: '{query}'")
 
             results = self.paginate_queryset(response, request, view=self)
             serializer = self.serializer_class(results, many=True)
@@ -41,11 +41,11 @@ class SearchUsers(PaginatedElasticSearchAPIView):
     document_class = UserDocument
 
     def generate_q_expression(self, query):
-        return Q('bool',
+        return Q("bool",
                  should=[
-                     Q('match', username=query),
-                     Q('match', first_name=query),
-                     Q('match', last_name=query),
+                     Q("match", username=query),
+                     Q("match", first_name=query),
+                     Q("match", last_name=query),
                  ], minimum_should_match=1)
 
 
@@ -55,11 +55,11 @@ class SearchCategories(PaginatedElasticSearchAPIView):
 
     def generate_q_expression(self, query):
         return Q(
-                'multi_match', query=query,
+                "multi_match", query=query,
                 fields=[
-                    'name',
-                    'description',
-                ], fuzziness='auto')
+                    "name",
+                    "description",
+                ], fuzziness="auto")
 
 
 class SearchArticles(PaginatedElasticSearchAPIView):
@@ -68,10 +68,10 @@ class SearchArticles(PaginatedElasticSearchAPIView):
 
     def generate_q_expression(self, query):
         return Q(
-                'multi_match', query=query,
+                "multi_match", query=query,
                 fields=[
-                    'title',
-                    'author',
-                    'type',
-                    'content'
-                ], fuzziness='auto')
+                    "title",
+                    "author",
+                    "type",
+                    "content"
+                ], fuzziness="auto")

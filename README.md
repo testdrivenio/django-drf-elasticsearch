@@ -8,7 +8,7 @@ Check out the [post](https://testdriven.io/blog/django-drf-elasticsearch/).
 
 1. Fork/Clone
 
-2. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/docker.html) if you haven't already and make sure it is running on port `9200`.
+2. [Install Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/docker.html) if you haven't already and make sure it is running on port `9200`. Make sure to update the `ELASTICSEARCH_DSL` config in *core/settings.py*.
 
 3. Create and activate a virtual environment:
 
